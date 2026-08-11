@@ -1,0 +1,110 @@
+---
+const pageTitle = 'Networking Components — Bounded Rust network primitives';
+const description = 'A modular Rust networking lab for naming, addressing, forwarding, policy, trust, connectivity, and telemetry.';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://networking-components.github.io/" />
+    <meta name="theme-color" content="#ececdf" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://networking-components.github.io/" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+      <a class="brand" href="/" aria-label="Networking Components home"><span>NCC</span><b>Networking Components</b></a>
+      <nav aria-label="Primary navigation"><a href="#catalog">Components</a><a href="#boundaries">Boundaries</a><a href="#method">Method</a><a class="nav-cta" href="https://github.com/networking-components">GitHub</a></nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">MODULAR RUST NETWORKING LAB / REV 0.1</p>
+          <h1>Network primitives,<br /><em>one bounded component at a time.</em></h1>
+          <p class="lede">A modular Rust networking lab spanning naming, addressing, forwarding, policy, trust, connectivity, and telemetry—with explicit safety boundaries and testable roadmaps.</p>
+          <div class="warning"><span>LAB SCOPE</span><p>Current slices are experiments and isolated overlays. They are not presented as production-ready or standards-compliant network appliances.</p></div>
+          <a class="button" href="#catalog">Inspect the component map <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <div class="topology" aria-label="Schematic grouping the Networking Components catalog">
+          <div class="topology-head"><span>SYSTEM MAP</span><b>15 COMPONENTS</b></div>
+          <div class="node client"><i></i><b>CLIENT</b><span>intent</span></div>
+          <div class="bus horizontal one" aria-hidden="true"></div>
+          <div class="node controller"><i></i><b>CONTROLLER</b><span>stage · reconcile · rollback</span></div>
+          <div class="bus vertical" aria-hidden="true"></div>
+          <div class="plane">
+            <div class="node"><i></i><b>NAME</b><span>DNS · discovery</span></div>
+            <div class="node"><i></i><b>ADDRESS</b><span>DHCP · IPAM</span></div>
+            <div class="node"><i></i><b>FORWARD</b><span>switch · router · proxy</span></div>
+            <div class="node"><i></i><b>POLICY</b><span>firewall · load balancer</span></div>
+          </div>
+          <div class="bus horizontal two" aria-hidden="true"></div>
+          <div class="evidence-node"><span>TRUST / TIME / CONNECTIVITY</span><b>PKI · NTP · STUN/TURN · VPN</b><i>observability</i></div>
+        </div>
+      </section>
+
+      <section class="index-strip" aria-label="Catalog groups"><span>01 Naming</span><span>02 Addressing</span><span>03 Data plane</span><span>04 Policy</span><span>05 Trust</span><span>06 Evidence</span></section>
+
+      <section class="catalog section" id="catalog">
+        <div class="section-heading"><p class="code">NCC / CATALOG</p><h2>Fifteen focused components. No mystery megabox.</h2><p>Each repository narrows its protocol surface, implementation boundary, and roadmap so progress can be measured against evidence.</p></div>
+        <div class="catalog-grid">
+          <article><span>NAME / ADDRESS</span><h3>DNS</h3><p>Static authoritative A and AAAA records over UDP and TCP.</p><b>LAB SLICE</b></article>
+          <article><span>NAME / ADDRESS</span><h3>DHCP</h3><p>DHCPv4/v6 leases, reservations, relay, and prefix-delegation roadmap.</p><b>ROADMAP</b></article>
+          <article><span>NAME / ADDRESS</span><h3>IPAM</h3><p>IPv4/IPv6 address, subnet, prefix, reservation, and allocation model.</p><b>ROADMAP</b></article>
+          <article><span>NAME / ADDRESS</span><h3>Discovery</h3><p>Health-aware registry with DNS, HTTP, and watch projections.</p><b>ROADMAP</b></article>
+
+          <article><span>DATA / POLICY</span><h3>Switch</h3><p>Isolated UDP-overlay laboratory for Ethernet switching behavior.</p><b>LAB SLICE</b></article>
+          <article><span>DATA / POLICY</span><h3>Router</h3><p>Isolated UDP-overlay laboratory for IPv4 and IPv6 forwarding.</p><b>LAB SLICE</b></article>
+          <article><span>DATA / POLICY</span><h3>Firewall</h3><p>State, anti-spoofing, rate limits, and enforcement-adapter roadmap.</p><b>ROADMAP</b></article>
+          <article><span>DATA / POLICY</span><h3>Load balancer</h3><p>Layer 4 and Layer 7 balancing surface and test plan.</p><b>ROADMAP</b></article>
+          <article><span>DATA / POLICY</span><h3>Forward proxy</h3><p>Explicit egress policy for HTTP CONNECT and SOCKS5.</p><b>ROADMAP</b></article>
+          <article><span>DATA / POLICY</span><h3>VPN</h3><p>Explicitly enabled cleartext relay slice; WireGuard-compatible target.</p><b>LAB SLICE</b></article>
+
+          <article><span>TRUST / CONNECT</span><h3>PKI</h3><p>Issuance, renewal, revocation, ACME, and HSM/KMS boundaries.</p><b>ROADMAP</b></article>
+          <article><span>TRUST / CONNECT</span><h3>NTP</h3><p>NTPv4, Network Time Security, source selection, and holdover.</p><b>ROADMAP</b></article>
+          <article><span>TRUST / CONNECT</span><h3>STUN / TURN</h3><p>ICE connectivity infrastructure for real-time applications.</p><b>ROADMAP</b></article>
+
+          <article><span>CONTROL / EVIDENCE</span><h3>Controller</h3><p>Shell-free child orchestration with reverse-order rollback on failure.</p><b>LAB SLICE</b></article>
+          <article><span>CONTROL / EVIDENCE</span><h3>Observability</h3><p>Bounded UDP counters, probes, flow telemetry, and SLO evidence roadmap.</p><b>LAB SLICE</b></article>
+        </div>
+      </section>
+
+      <section class="boundaries section" id="boundaries">
+        <div class="boundary-head">
+          <p class="code">READ THE LABEL</p>
+          <h2>A roadmap is not a runtime guarantee.</h2>
+        </div>
+        <div class="boundary-table">
+          <div class="table-head"><span>LABEL</span><span>WHAT IT MEANS</span><span>WHAT IT DOES NOT MEAN</span></div>
+          <div><b class="lab">LAB SLICE</b><p>A bounded implementation exists and can be exercised in its documented lab topology.</p><p>Production hardening, interoperability, scale, or complete standards coverage.</p></div>
+          <div><b class="road">ROADMAP</b><p>The contract, safety boundary, acceptance targets, and staged implementation plan are documented.</p><p>That the named protocol feature is already implemented.</p></div>
+          <div><b class="evidence">EVIDENCE</b><p>A repeatable test, probe, invariant, or failure case backs the claim.</p><p>A broad reliability claim outside the test’s stated boundary.</p></div>
+        </div>
+      </section>
+
+      <section class="method section" id="method">
+        <div class="section-heading"><p class="code">HOW WE BUILD</p><h2>State the boundary. Build the slice. Keep the warning.</h2><p>The catalog is useful because limitations stay visible next to capabilities.</p></div>
+        <ol>
+          <li><span>01</span><div><h3>Define the protocol surface</h3><p>Name the RFC area, inputs, outputs, invariants, and explicit omissions.</p></div></li>
+          <li><span>02</span><div><h3>Isolate the first slice</h3><p>Prefer a testable bounded topology over a premature appliance claim.</p></div></li>
+          <li><span>03</span><div><h3>Capture failure evidence</h3><p>Keep rollback behavior, counters, probes, and unsafe modes observable.</p></div></li>
+          <li><span>04</span><div><h3>Advance one claim at a time</h3><p>Move a label only when new implementation and certification warrant it.</p></div></li>
+        </ol>
+      </section>
+    </main>
+    <footer><a class="brand" href="/"><span>NCC</span><b>Networking Components</b></a><p>Modular network systems, with the caveats left on.</p><a href="https://github.com/networking-components">GitHub ↗</a></footer>
+  </body>
+</html>
+
+<style is:global>
+  :root{--paper:#ececdf;--ink:#172126;--blue:#174f6b;--blue2:#2b748d;--orange:#d7632c;--muted:#57666b;--line:#aeb8b5;--white:#f7f6ed;--dark:#12232b;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background-color:var(--paper);background-image:linear-gradient(rgba(23,79,107,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(23,79,107,.08) 1px,transparent 1px);background-size:24px 24px}a{color:inherit}.skip-link{position:fixed;top:-4rem;left:1rem;background:var(--orange);color:white;padding:.8rem;z-index:99}.skip-link:focus{top:1rem}header,main,footer{width:min(1200px,calc(100% - 42px));margin-inline:auto}header{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--blue)}.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}.brand span{display:grid;place-items:center;width:40px;height:30px;background:var(--blue);color:white;font:900 .7rem ui-monospace,monospace;letter-spacing:.08em}.brand b{font-size:.82rem;letter-spacing:.02em}nav{display:flex;gap:1.5rem;align-items:center;font-size:.75rem;font-weight:850}nav a{text-decoration:none}.nav-cta{border:1px solid var(--blue);padding:.7rem .9rem}.hero{min-height:700px;display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center;padding:75px 0 95px}.eyebrow,.code{font:850 .65rem ui-monospace,SFMono-Regular,monospace;letter-spacing:.14em;color:var(--blue)}h1,h2,h3,p{margin-top:0}h1,h2{font-family:"Arial Narrow",Inter,sans-serif;text-transform:uppercase}h1{font-size:clamp(4rem,7.2vw,7.2rem);line-height:.84;letter-spacing:-.075em;margin:1.3rem 0 2rem}h1 em{font-style:normal;color:var(--blue)}h2{font-size:clamp(2.8rem,5.2vw,5.2rem);line-height:.9;letter-spacing:-.065em}.lede{font-size:1.12rem;line-height:1.7;color:var(--muted);max-width:650px}.warning{display:grid;grid-template-columns:auto 1fr;gap:15px;margin:1.8rem 0;border:2px solid var(--orange);background:rgba(247,246,237,.7);padding:14px}.warning span{font:900 .62rem ui-monospace,monospace;color:var(--orange);white-space:nowrap}.warning p{font-size:.73rem;line-height:1.5;margin:0;color:#594e47}.button{display:inline-flex;gap:2rem;justify-content:space-between;background:var(--blue);color:white;padding:.9rem 1rem;text-decoration:none;font-size:.78rem;font-weight:900}.topology{background:var(--white);border:1px solid var(--blue);min-height:520px;padding:22px;position:relative;box-shadow:10px 10px 0 var(--blue)}.topology-head{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;font:800 .62rem ui-monospace,monospace;color:var(--blue)}.node{position:relative;border:1px solid var(--blue);background:var(--white);padding:12px;display:flex;flex-direction:column;gap:.3rem}.node i{position:absolute;right:10px;top:10px;width:7px;height:7px;background:var(--blue2);border-radius:50%}.node b{font:900 .68rem ui-monospace,monospace}.node span{font-size:.6rem;color:var(--muted)}.node.client{width:120px;margin:28px auto 20px}.node.controller{width:220px;margin:0 auto 31px;background:#dce8e6}.plane{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.bus.vertical{position:absolute;height:32px;border-left:1px solid var(--blue);left:50%;top:142px}.evidence-node{margin-top:28px;background:var(--dark);color:white;padding:14px;display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem}.evidence-node span{font:700 .55rem ui-monospace,monospace;color:#7fc3d0}.evidence-node b{font-size:.68rem}.evidence-node i{grid-row:1/3;grid-column:2;font:700 .57rem ui-monospace,monospace;color:#ffc49f;align-self:center}.index-strip{width:100%;background:var(--dark);color:white;padding:22px 25px;display:grid;grid-template-columns:repeat(6,1fr);font:700 .61rem ui-monospace,monospace;letter-spacing:.08em}.index-strip span{border-right:1px solid #45606a;text-align:center}.index-strip span:last-child{border:0}.section{padding:115px 0;border-bottom:1px solid var(--blue)}.section-heading{display:grid;grid-template-columns:.3fr 1.05fr .65fr;gap:2.5rem;align-items:start;margin-bottom:55px}.section-heading h2{margin:0}.section-heading>p:last-child{color:var(--muted);line-height:1.7}.catalog-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.catalog-grid article{min-height:225px;padding:20px;background:rgba(247,246,237,.78);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}.catalog-grid article>span{font:800 .56rem ui-monospace,monospace;color:var(--blue2)}.catalog-grid h3{font-family:"Arial Narrow",Inter,sans-serif;font-size:1.6rem;text-transform:uppercase;margin:2.4rem 0 .6rem}.catalog-grid p{font-size:.75rem;line-height:1.55;color:var(--muted)}.catalog-grid article>b{margin-top:auto;width:max-content;font:900 .55rem ui-monospace,monospace;border:1px solid var(--orange);color:var(--orange);padding:.3rem .4rem}.boundaries{display:grid;grid-template-columns:.7fr 1.3fr;gap:7vw}.boundary-head h2{margin-top:1rem}.boundary-table{border-top:2px solid var(--ink)}.boundary-table>div{display:grid;grid-template-columns:.35fr 1fr 1fr;gap:18px;padding:17px 0;border-bottom:1px solid var(--line);align-items:start}.boundary-table .table-head{font:800 .58rem ui-monospace,monospace;color:var(--blue)}.boundary-table b{width:max-content;font:900 .55rem ui-monospace,monospace;padding:.33rem .4rem}.boundary-table b.lab{border:1px solid var(--orange);color:var(--orange)}.boundary-table b.road{border:1px solid var(--blue);color:var(--blue)}.boundary-table b.evidence{background:var(--blue);color:white}.boundary-table p{font-size:.75rem;line-height:1.55;color:var(--muted);margin:0}.method ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.method li{background:var(--dark);color:white;padding:23px;min-height:240px}.method li>span{font:800 .6rem ui-monospace,monospace;color:#73bcd0}.method li div{margin-top:3.5rem}.method h3{font-size:.95rem}.method p{font-size:.76rem;line-height:1.6;color:#b7c7cc}footer{padding:50px 0 65px;display:grid;grid-template-columns:1fr 1fr auto;gap:2rem;align-items:center;font-size:.76rem;color:var(--muted)}footer p{margin:0}footer>a:last-child{font-weight:900;color:var(--blue)}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:3px}@media(max-width:950px){.hero,.boundaries{grid-template-columns:1fr}.topology{max-width:650px}.section-heading{grid-template-columns:1fr}.catalog-grid,.method ol{grid-template-columns:repeat(2,1fr)}footer{grid-template-columns:1fr}}@media(max-width:640px){header{height:auto;padding:18px 0;align-items:flex-start}nav a:not(.nav-cta){display:none}.hero{padding:55px 0}h1{font-size:3.55rem}.topology{padding:14px;box-shadow:6px 6px 0 var(--blue)}.index-strip{grid-template-columns:repeat(2,1fr);gap:14px}.index-strip span{border:0}.section{padding:78px 0}.section-heading{gap:.8rem}.catalog-grid,.method ol{grid-template-columns:1fr}.boundary-table .table-head{display:none}.boundary-table>div{grid-template-columns:1fr}.boundary-table>div:not(.table-head) p:last-child{padding-left:12px;border-left:2px solid var(--orange)}header,main,footer{width:min(100% - 26px,1200px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
